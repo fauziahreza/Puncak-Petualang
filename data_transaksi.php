@@ -55,7 +55,7 @@ if(isset ($_SESSION['username'])){
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link" href="data_mobil.php">
+                <a class="nav-link" href="data_barang.php">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Data Mobil</span>
                 </a>
@@ -93,7 +93,7 @@ if(isset ($_SESSION['username'])){
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link" href="data_mobil_admin.php">
+                <a class="nav-link" href="data_barang_admin.php">
                 <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
                     <span>&nbsp;Katalog</span>
                 </a>
@@ -193,8 +193,8 @@ if(isset ($_SESSION['username'])){
                         <div class="card-body">
                             <div class="table-responsive">
                             <?php
-                            $query_data_mobil = "SELECT * FROM pengembalian";
-                            $sql_data_mobil = mysqli_query($conn, $query_data_mobil);
+                            $query_data_barang = "SELECT * FROM pengembalian";
+                            $sql_data_barang = mysqli_query($conn, $query_data_barang);
                             $no = 1;
                             ?>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -218,7 +218,7 @@ if(isset ($_SESSION['username'])){
                                     <tbody align="center">
                                     
                                     <?php
-                                        while($r_dt_mobil = mysqli_fetch_array($sql_data_mobil)){
+                                        while($r_dt_mobil = mysqli_fetch_array($sql_data_barang)){
                                     ?>
                                         <tr class="odd gradeX">
                                         <!-- <td><center><?php echo $no++; ?>.</center></td> -->
