@@ -232,11 +232,13 @@ if(isset ($_SESSION['username'])){
                                             echo mysqli_error($conn);
                                         }
                                         else {
+                                            echo $sql3;
                                             echo "<script>alert('Gagal Insert Data!')</script>";
                                         }  
                                     }
                                 ?>
                             </div>
+                            
                         </div>
                     </div>
                 </section>
