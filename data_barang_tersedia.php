@@ -179,7 +179,7 @@ if(isset ($_SESSION['username'])){
                                         <td><?php echo $r_dt_barang['id_barang']; ?></td>
                                         <td><?php echo $r_dt_barang['jenis_barang']; ?></td>
                                         <td><?php echo $r_dt_barang['nama_barang']; ?></td>
-                                        <td><?php echo $r_dt_barang['harga_sewa']; ?></td>
+                                        <td>Rp.<?php echo number_format($r_dt_barang['harga_sewa'],0,',','.'); ?>,-/hari</td>
                                         <td><?php echo $r_dt_barang['keterangan']; ?></td>
                                         </tr>
                                     <?php
