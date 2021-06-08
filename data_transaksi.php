@@ -158,7 +158,7 @@ if(isset ($_SESSION['username'])){
                                     <?php
                                         if(isset($_POST['cari'])){
                                             $id_barang = $_POST['id_barang'];
-                                            $query_cari = "SELECT show_car('$id_barang')";
+                                            $query_cari = "SELECT lihatbarang('$id_barang')";
                                             $sql_cari = mysqli_query($conn, $query_cari);
                                             while($test = mysqli_fetch_array($sql_cari)){
                                                 $banyak_peminjaman = $test[0]; 
@@ -178,7 +178,7 @@ if(isset ($_SESSION['username'])){
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="Banyak Peminjaman" class="col-sm-2 col-form-label">Banyak Peminjaman</label>
+                                        <label for="Banyak Peminjaman" class="col-sm-2 col-form-label">Jumlah Terpinjam</label>
                                         <div class="col-sm-10">
                                             <input type="text" name="banyak_peminjaman" value="<?php echo $banyak_peminjaman; ?>" class="form-control" disabled>
                                         </div>
@@ -209,7 +209,6 @@ if(isset ($_SESSION['username'])){
                                             <th>Keterangan</th>
                                             <th>Lama Sewa</th>
                                             <th>Biaya Sewa</th>
-                                            <th>Denda</th>
                                             <th>keterangan</th>
                                             <th>Total Pembayaran</th>
                                             
@@ -221,19 +220,18 @@ if(isset ($_SESSION['username'])){
                                         while($r_dt_barang = mysqli_fetch_array($sql_data_barang)){
                                     ?>
                                         <tr class="odd gradeX">
-                                        <!-- <td><center><?php echo $no++; ?>.</center></td> -->
-                                        <td><?php echo $r_dt_barang['id_pengembalian']; ?></td>
-                                        <td><?php echo $r_dt_barang['id_admin']; ?></td>
-                                        <td><?php echo $r_dt_barang['id_barang']; ?></td>
-                                        <td><?php echo $r_dt_barang['id_customer']; ?></td>
-                                        <td><?php echo $r_dt_barang['id_sewa']; ?></td>
-                                        <td><?php echo $r_dt_barang['tanggal_kembali']; ?></td>
-                                        <td><?php echo $r_dt_barang['keterangan']; ?></td>
-                                        <td><?php echo $r_dt_barang['lama_sewa']; ?></td>
-                                        <td><?php echo $r_dt_barang['biaya_sewa']; ?></td>
-                                        <td><?php echo $r_dt_barang['denda']; ?></td>
-                                        <td><?php echo $r_dt_barang['keterangan_bayar']; ?></td>
-                                        <td><?php echo $r_dt_barang['total_pembayaran']; ?></td>
+                                            <!-- <td><center><?php echo $no++; ?>.</center></td> -->
+                                            <td><?php echo $r_dt_barang['id_pengembalian']; ?></td>
+                                            <td><?php echo $r_dt_barang['id_admin']; ?></td>
+                                            <td><?php echo $r_dt_barang['id_barang']; ?></td>
+                                            <td><?php echo $r_dt_barang['id_customer']; ?></td>
+                                            <td><?php echo $r_dt_barang['id_sewa']; ?></td>
+                                            <td><?php echo $r_dt_barang['tanggal_kembali']; ?></td>
+                                            <td><?php echo $r_dt_barang['keterangan']; ?></td>
+                                            <td><?php echo $r_dt_barang['lama_sewa']; ?></td>
+                                            <td>Rp.<?php echo number_format($r_dt_barang['biaya_sewa'],0,',','.'); ?>,-/hari</td>
+                                            <td><?php echo $r_dt_barang['keterangan_bayar']; ?></td>
+                                            <td>Rp.<?php echo number_format($r_dt_barang['total_pembayaran'],0,',','.'); ?>,-</td>
                                         </tr>
                                         <?php
                                         }
