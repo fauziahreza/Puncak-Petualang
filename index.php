@@ -94,7 +94,7 @@
                     if(isset($_SESSION['eror'])){
                         unset($_SESSION['eror']);
                     }
-                    header('location: beranda.php');
+                    header('location: data_barang.php');
                     break;
                 } else {
                     $_SESSION['eror'] = 'salah';

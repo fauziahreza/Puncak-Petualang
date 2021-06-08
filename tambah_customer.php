@@ -40,19 +40,12 @@ if(isset ($_SESSION['username'])){
         <?php
             if($r['id_status'] == 2){
         ?>
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon">
                     <img src="img/logo.svg" width="30px" height="30px">
                 </div>
                 <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link" href="beranda.php">
-                <img alt="Image placeholder" src="img/beranda.svg" width="25px" height="25px">
-                    <span>Beranda</span>
-                </a>
-            </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_barang.php">
@@ -78,19 +71,12 @@ if(isset ($_SESSION['username'])){
         <?php
             } else if($r['id_status'] == 1){
         ?>
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="img/dashboard.png" width="30px" height="30px">
                 </div>
                 <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="beranda.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Beranda</span>
-                </a>
-            </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_barang_admin.php">
@@ -163,21 +149,15 @@ if(isset ($_SESSION['username'])){
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="Nomor KTP" class="col-sm-2 col-form-label">Nomor KTP</label>
+                                        <label for="Nomor WA" class="col-sm-2 col-form-label">Nomor WA</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="nomor_ktp" class="form-control"  placeholder="Masukkan Nomor KTP" required>
+                                            <input type="text" name="no_wa" class="form-control"  placeholder="Masukkan Nomor WA" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="Alamat" class="col-sm-2 col-form-label">Alamat</label>
                                         <div class="col-sm-10">
                                             <input type="text" name="alamat" class="form-control" placeholder="Masukkan Alamat" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="Tanggal Lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                        <div class="col-sm-10">
-                                            <input type="date" name="tanggal_lahir" class="form-control" placeholder="Masukkan Alamat" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -191,12 +171,10 @@ if(isset ($_SESSION['username'])){
                                     if(isset($_POST['kirim_data'])){
                                         $id = "";
                                         $nama = $_POST['nama'];
-                                        $nomor_ktp = $_POST['nomor_ktp'];
+                                        $nomor_wa = $_POST['no_wa'];
                                         $alamat = $_POST['alamat'];
-                                        $tanggal_lahir = $_POST['tanggal_lahir'];
-                                        $query_data2 = "INSERT INTO `customer`(`id_customer`, `nama`, `no_wa`, `alamat`,`tanggal_lahir`) VALUES ('$id','$nama','$nomor_ktp','$alamat','$tanggal_lahir')";
-                                        $query_data = "INSERT INTO customer VALUES('','$nama','$nomor_ktp','$alamat',' $tanggal_lahir')";
-                                        $sql_data = mysqli_query($conn, $query_data2);
+                                        $query_data = "INSERT INTO customer VALUES('','$nama','$nomor_wa','$alamat')";
+                                        $sql_data = mysqli_query($conn, $query_data);
                                         if($sql_data){
                                             $_SESSION['daftar'] = 'sukses';
                                             echo "<script>alert('Berhasil Menambahkan Customer!')</script>";
@@ -208,7 +186,6 @@ if(isset ($_SESSION['username'])){
                                     }
                                 ?> 
                             </div>
-                            <?php echo $query_data2 ?>
                         </div>
                     </div>
                 </section>

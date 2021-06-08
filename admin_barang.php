@@ -40,19 +40,12 @@ if(isset ($_SESSION['username'])){
         <?php
             if($r['id_status'] == 2){
         ?>
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon">
                     <img src="img/logo.svg" width="30px" height="30px">
                 </div>
                 <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link" href="beranda.php">
-                <img alt="Image placeholder" src="img/beranda.svg" width="25px" height="25px">
-                    <span>Beranda</span>
-                </a>
-            </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="data_mobil.php">
@@ -78,19 +71,12 @@ if(isset ($_SESSION['username'])){
         <?php
             } else if($r['id_status'] == 1){
         ?>
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon">
                     <img src="img/logo.svg" width="30px" height="30px">
                 </div>
                 <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link" href="beranda.php">
-                <img alt="Image placeholder" src="img/beranda.svg" width="25px" height="25px">
-                    <span>Beranda</span>
-                </a>
-            </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="admin_barang.php">
@@ -180,7 +166,7 @@ if(isset ($_SESSION['username'])){
                                         if($sql_update){
                                             $_SESSION['updatesukses'] = 'sukses';
                                             echo "<script>alert('Berhasil memperbarui data Mobil!')</script>";
-                                            header('location: data_mobil_admin.php');
+                                            header('location: admin_barang.php');
                                         } else {
                                             echo "<script>alert('Gagal memperbarui data Mobil!')</script>";
                                         }
