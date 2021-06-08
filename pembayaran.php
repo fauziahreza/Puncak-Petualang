@@ -80,28 +80,28 @@ if(isset ($_SESSION['username'])){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <img src="img/dashboard.png" width="30px" height="30px">
+                    <img src="img/logo.svg" width="30px" height="30px">
                 </div>
                 <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="beranda.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <img src="img/beranda.svg" width="25px" height="25px">
                     <span>Beranda</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_barang_admin.php">
-                    <i class="fas fa-fw fa-folder"></i>
+                <img src="img/katalog.svg" width="25px" height="25px">
                     <span>Data Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_transaksi.php">
-                    <i class="fas fa-fw fa-folder"></i>
+                <img src="img/tf.svg" width="25px" height="25px">
                     <span>Data Transaksi</span>
                 </a>
             </li>
