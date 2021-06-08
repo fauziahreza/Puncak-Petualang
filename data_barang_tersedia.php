@@ -148,7 +148,7 @@ if(isset ($_SESSION['username'])){
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Data Barang</h1>
-                    <a href="data_barang.php" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">Tampilkan Seluruh Data Barang</a>
+                    <a href="data_barang.php" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Tampilkan Seluruh Data Barang</a>
                 </div>
                 <section class="mar-top--x-3 mar-bottom--x-5">
                     <div class="card shadow mb-4">

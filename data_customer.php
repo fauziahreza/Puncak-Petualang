@@ -25,6 +25,7 @@ if(isset ($_SESSION['username'])){
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Puncak Petualang</title>
+    <link rel="stylesheet" href="css/Styles.css">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -35,41 +36,41 @@ if(isset ($_SESSION['username'])){
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav gradient-bg sidebar sidebar-dark accordion" id="accordionSidebar">
         <?php
             if($r['id_status'] == 2){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
                 <div class="sidebar-brand-icon">
-                    <img src="img/icon.png" width="30px" height="30px">
+                    <img src="img/logo.svg" width="30px" height="30px">
                 </div>
                 <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="beranda.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <img alt="Image placeholder" src="img/beranda.svg" width="25px" height="25px">
                     <span>Beranda</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_barang.php">
-                <img alt="Image placeholder" src="img/katalog.png">
-                    <span>&nbsp;Data Barang</span>
+                <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
+                    <span>&nbsp;Katalog</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="peminjaman.php">
-                <img alt="Image placeholder" src="img/pinjam.png">
-                    <span>&nbsp;Penyewaan</span>
+                <img alt="Image placeholder" src="img/sewa.svg" width="25px" height="25px">
+                    <span>&nbsp;Sewa Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="pengembalian.php">
-                <img alt="Image placeholder" src="img/kembali.png">
+                <img alt="Image placeholder" src="img/kembali.svg" width="25px" height="25px">
                     <span>&nbsp;Pengembalian</span>
                 </a>
             </li>
@@ -86,7 +87,7 @@ if(isset ($_SESSION['username'])){
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="beranda.php">
-                    <img alt="Image placeholder" src="img/katalog.png">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span>
                 </a>
             </li>
@@ -94,7 +95,7 @@ if(isset ($_SESSION['username'])){
             <li class="nav-item">
                 <a class="nav-link" href="data_barang_admin.php">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Barangl</span>
+                    <span>Data Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -116,14 +117,14 @@ if(isset ($_SESSION['username'])){
             <div id="content">
                   
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light gradient-bg topbar mb-4 static-top shadow">
                     <ul class="navbar-nav ml-auto">
                         
                         <!-- Informasi User -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $r['nama'];?></span>
+                                <span class="mr-2 d-none d-lg-inline text-white small"><?php echo $r['nama'];?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -165,9 +166,8 @@ if(isset ($_SESSION['username'])){
                                             <th>No.</th>
                                             <th>Id customer</th>
                                             <th>Nama</th>
-                                            <th>Nomor KTP</th>
+                                            <th>Nomor WA</th>
                                             <th>Alamat</th>
-                                            <th>Tanggal Lahir</th>
                                         </tr>
                                     </thead>
                                     <tbody align="center">
@@ -178,9 +178,8 @@ if(isset ($_SESSION['username'])){
                                         <td><center><?php echo $no++; ?>.</center></td>
                                         <td><?php echo $r_dt_customer['id_customer']; ?></td>
                                         <td><?php echo $r_dt_customer['nama']; ?></td>
-                                        <td><?php echo $r_dt_customer['no_ktp']; ?></td>
+                                        <td><?php echo $r_dt_customer['no_wa']; ?></td>
                                         <td><?php echo $r_dt_customer['alamat']; ?></td>
-                                        <td><?php echo $r_dt_customer['tanggal_lahir']; ?></td>
                                         </tr>
                                     <?php
                                         }
