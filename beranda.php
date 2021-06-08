@@ -93,9 +93,9 @@ if(isset ($_SESSION['username'])){
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link" href="data_barang_admin.php">
+                <a class="nav-link" href="admin_barang.php">
                 <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
-                    <span>&nbsp;Katalog</span>
+                    <span>&nbsp;Kelola Data Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -184,13 +184,6 @@ if(isset ($_SESSION['username'])){
             <!-- End of Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SMBD KELOMPOK 6</span>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 

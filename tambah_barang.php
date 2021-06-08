@@ -79,29 +79,29 @@ if(isset ($_SESSION['username'])){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
                 <div class="sidebar-brand-icon">
-                    <img src="img/icon.png" width="30px" height="30px">
+                    <img src="img/logo.svg" width="30px" height="30px">
                 </div>
                 <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="beranda.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <img alt="Image placeholder" src="img/beranda.svg" width="25px" height="25px">
                     <span>Beranda</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="data_barang_admin.php">
-                    <img alt="Image placeholder" src="img/barang.png">
-                    <span>Data barang</span>
+                <a class="nav-link" href="admin_barang.php">
+                <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
+                    <span>&nbsp;Kelola Data Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_transaksi.php">
-                    <img alt="Image placeholder" src="img/pinjam.png">
-                    <span>Data Transaksi</span>
+                <img alt="Image placeholder" src="img/tf.svg" width="25px" height="25px">
+                    <span>&nbsp;Transaksi</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -151,7 +151,7 @@ if(isset ($_SESSION['username'])){
                         <div class="card-body">
                             <div class="responsive">
                                 <div class="judul">
-                                    <h4 align="center">Tambah barang Baru</h4>
+                                    <h4 align="center">Form Tambah Barang Baru</h4>
                                     <br>
                                 </div>
                                 <form action="" method="post" class="user">
@@ -171,12 +171,6 @@ if(isset ($_SESSION['username'])){
                                         <label for="nama barang" class="col-sm-2 col-form-label">Nama Barang</label>
                                         <div class="col-sm-10">
                                             <input type="text" name="nama_barang" class="form-control" placeholder="Masukkan Nama Barang" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="Tahun Produksi" class="col-sm-2 col-form-label">Tahun Produksi</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" name="tahun_produksi" class="form-control" placeholder="Masukkan Tahun Produksi" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -201,9 +195,8 @@ if(isset ($_SESSION['username'])){
                                 <?php
                                     if(isset($_POST['kirim_data'])){
                                         $id_barang = $_POST['id_barang'];
+                                        $jenis_barang = $_POST['jenis_barang'];
                                         $nama_barang = $_POST['nama_barang'];
-                                        $nama_barang = $_POST['nama_barang'];
-                                        $tahun_produksi = $_POST['tahun_produksi'];
                                         $harga_sewa = $_POST['harga_sewa'];
                                         $keterangan = $_POST['keterangan'];
                                         $id_valid = false;
@@ -219,7 +212,7 @@ if(isset ($_SESSION['username'])){
                                             }
                                         }
                                         if($id_valid == true){
-                                            $query_tambah = "CALL tambah_barang('$id_barang','$nama_barang','$nama_barang','$tahun_produksi','$harga_sewa','$keterangan')";
+                                            $query_tambah = "CALL tambah_barang('$id_barang','$jenis_barang','$nama_barang','$harga_sewa','$keterangan')";
                                             $sql_tambah = mysqli_query($conn, $query_tambah);
                                             if($sql_tambah){
                                                 $_SESSION['tambah'] = 'sukses';

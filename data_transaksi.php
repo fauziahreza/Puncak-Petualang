@@ -92,14 +92,14 @@ if(isset ($_SESSION['username'])){
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link" href="data_barang_admin.php">
+            <li class="nav-item active">
+                <a class="nav-link" href="admin_barang.php">
                 <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
-                    <span>&nbsp;Katalog</span>
+                    <span>&nbsp;Kelola Data Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="data_transaksi.php">
                 <img alt="Image placeholder" src="img/tf.svg" width="25px" height="25px">
                     <span>&nbsp;Transaksi</span>
