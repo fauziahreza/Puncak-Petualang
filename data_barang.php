@@ -94,7 +94,7 @@ if(isset ($_SESSION['username'])){
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link" href="data_barang_admin.php">
+                <a class="nav-link" href="admin_barang.php">
                 <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
                     <span>&nbsp;Katalog</span>
                 </a>

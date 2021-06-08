@@ -245,7 +245,7 @@ if(isset ($_SESSION['username'])){
                                         //Query input menginput data kedalam tabel barang
                                         
                                         mysqli_begin_transaction($conn);
-                                        $sql4="CALL pengembalian(null,$id_admin,$id_barang,$id_customer,$id_sewa,'$tanggal_kembali','$keterangan',$lama_sewa,$biaya_sewa,$denda,$hargatotal,'$keterangan_bayar')";
+                                        $sql4="CALL tambah_pengembalian(null,$id_admin,$id_barang,$id_customer,$id_sewa,'$tanggal_kembali','$keterangan',$lama_sewa,$biaya_sewa,$denda,$hargatotal,'$keterangan_bayar')";
                                         
                                         //Mengeksekusi/menjalankan query diatas
                                         	

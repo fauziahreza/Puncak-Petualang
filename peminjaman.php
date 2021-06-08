@@ -35,6 +35,7 @@ if(isset ($_SESSION['username'])){
 <body id="page-top">
     <div id="wrapper">
 
+
         <!-- Sidebar -->
         <ul class="navbar-nav gradient-bg sidebar sidebar-dark accordion" id="accordionSidebar">
         <?php
@@ -61,14 +62,14 @@ if(isset ($_SESSION['username'])){
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="peminjaman.php">
                 <img alt="Image placeholder" src="img/sewa.svg" width="25px" height="25px">
                     <span>&nbsp;Sewa Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="pengembalian.php">
                 <img alt="Image placeholder" src="img/kembali.svg" width="25px" height="25px">
                     <span>&nbsp;Pengembalian</span>
@@ -117,14 +118,14 @@ if(isset ($_SESSION['username'])){
             <div id="content">
                   
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light gradient-bg topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <ul class="navbar-nav ml-auto">
                         
                         <!-- Informasi User -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-white small"><?php echo $r['nama'];?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $r['nama'];?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -160,7 +161,7 @@ if(isset ($_SESSION['username'])){
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Id Barang</label>
                                         <div class="col-sm-10">
-                                            <select name="id_barang" class="form-control">
+                                            <select name="id_mobil" class="form-control">
                                                 <?php 
                                                 $sql1="select * from barang WHERE keterangan='tersedia'";
                                                 $hasil=mysqli_query($conn,$sql1);
@@ -188,8 +189,8 @@ if(isset ($_SESSION['username'])){
                                                 }
                                                 ?>
                                             </select>
-                                            <a href="tambah_customer.php" name="tambah_customer" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i class="fas fa-fw fa-plus"></i>Tambah Customer</a>
-                                            <a href="data_customer.php" name="data_customer" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"> <i class="fas fa-fw fa-eye"></i>Lihat Customer</a>
+                                            <a href="tambah_customer.php" name="tambah_customer" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-fw fa-plus"></i></a>
+                                            <a href="data_customer.php" name="data_customer" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"> <i class="fas fa-fw fa-eye"></i></a>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -219,7 +220,7 @@ if(isset ($_SESSION['username'])){
                                         $tanggal_sewa=$_POST["tanggal_sewa"];
                                         $waktu_sewa=$_POST["waktu_sewa"];
                                         //Query input menginput data kedalam tabel penyewaan
-                                        $sql3="CALL penyewaan ($id_admin,'$id_barang','$id_customer','$tanggal_sewa',$waktu_sewa)";
+                                        $sql3="CALL tambah_penyewaan ($id_admin,'$id_barang','$id_customer','$tanggal_sewa',$waktu_sewa)";
 
                                         //Mengeksekusi/menjalankan query diatas	
                                         $hasil=mysqli_query($conn,$sql3);
