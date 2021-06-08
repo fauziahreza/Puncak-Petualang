@@ -175,7 +175,7 @@ if(isset ($_SESSION['username'])){
                                                 }
                                                 ?>
                                             </select>
-                                            <a href="data_sewa.php" name="data_customer" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"> <i class="fas fa-fw fa-eye"></i></a>
+                                            <a href="data_sewa.php" name="data_customer" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"> Lihat Data</a>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -200,7 +200,7 @@ if(isset ($_SESSION['username'])){
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label"></label>
                                         <div class="col-sm-10">
-                                            <button type="submit" name="kirim" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">Tambahkan Data</button>
+                                            <button type="submit" name="kirim" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Tambah Data</button>
                                         </div>
                                     </div>
                                 </form>
