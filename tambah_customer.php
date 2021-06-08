@@ -43,7 +43,7 @@ if(isset ($_SESSION['username'])){
                 <div class="sidebar-brand-icon">
                     <img src="img/icon.png" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
@@ -55,8 +55,8 @@ if(isset ($_SESSION['username'])){
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_barang.php">
-                <img alt="Image placeholder" src="img/mobil.png">
-                    <span>&nbsp;Data Mobil</span>
+                <img alt="Image placeholder" src="img/barang.png">
+                    <span>&nbsp;Data barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -81,7 +81,7 @@ if(isset ($_SESSION['username'])){
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="img/dashboard.png" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -94,7 +94,7 @@ if(isset ($_SESSION['username'])){
             <li class="nav-item">
                 <a class="nav-link" href="data_barang_admin.php">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Mobil</span>
+                    <span>Data barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">

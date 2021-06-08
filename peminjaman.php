@@ -82,7 +82,7 @@ if(isset ($_SESSION['username'])){
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="img/dashboard.png" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -95,7 +95,7 @@ if(isset ($_SESSION['username'])){
             <li class="nav-item">
                 <a class="nav-link" href="data_barang_admin.php">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Mobil</span>
+                    <span>Data Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -214,12 +214,12 @@ if(isset ($_SESSION['username'])){
                                 <?php
                                     if(isset($_POST['kirim'])){
                                         $id_admin=$_POST["id_admin"];
-                                        $id_mobil=$_POST["id_mobil"];
+                                        $id_barang=$_POST["id_barang"];
                                         $id_customer=$_POST["id_customer"];
                                         $tanggal_sewa=$_POST["tanggal_sewa"];
                                         $waktu_sewa=$_POST["waktu_sewa"];
                                         //Query input menginput data kedalam tabel penyewaan
-                                        $sql3="CALL penyewaan ($id_admin,'$id_mobil','$id_customer','$tanggal_sewa',$waktu_sewa)";
+                                        $sql3="CALL penyewaan ($id_admin,'$id_barang','$id_customer','$tanggal_sewa',$waktu_sewa)";
 
                                         //Mengeksekusi/menjalankan query diatas	
                                         $hasil=mysqli_query($conn,$sql3);

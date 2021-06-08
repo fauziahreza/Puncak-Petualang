@@ -44,7 +44,7 @@ if(isset ($_SESSION['username'])){
                 <div class="sidebar-brand-icon rotate-n-15">
                 <img src="img/icon.png" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -57,7 +57,7 @@ if(isset ($_SESSION['username'])){
             <li class="nav-item">
                 <a class="nav-link" href="data_barang.php">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Mobil</span>
+                    <span>Data Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -157,8 +157,8 @@ if(isset ($_SESSION['username'])){
                                     ?>
                                     <?php
                                         if(isset($_POST['cari'])){
-                                            $id_mobil = $_POST['id_mobil'];
-                                            $query_cari = "SELECT show_car('$id_mobil')";
+                                            $id_barang = $_POST['id_barang'];
+                                            $query_cari = "SELECT show_car('$id_barang')";
                                             $sql_cari = mysqli_query($conn, $query_cari);
                                             while($test = mysqli_fetch_array($sql_cari)){
                                                 $banyak_peminjaman = $test[0]; 
@@ -166,9 +166,9 @@ if(isset ($_SESSION['username'])){
                                         }                                   
                                     ?> 
                                     <div class="form-group row">
-                                        <label for="Id Mobil" class="col-sm-2 col-form-label">Id Mobil</label>
+                                        <label for="Id barang" class="col-sm-2 col-form-label">Id barang</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="id_mobil" class="form-control" placeholder="Masukkan Id Mobil" required>
+                                            <input type="text" name="id_barang" class="form-control" placeholder="Masukkan Id barang" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -202,7 +202,7 @@ if(isset ($_SESSION['username'])){
                                         <tr>
                                             <th>ID</th>
                                             <th>ID Admin</th>
-                                            <th>ID Mobil</th>
+                                            <th>ID barang</th>
                                             <th>ID Customer</th>
                                             <th>ID Sewa</th>
                                             <th>Tanggal Kembali</th>
@@ -218,22 +218,22 @@ if(isset ($_SESSION['username'])){
                                     <tbody align="center">
                                     
                                     <?php
-                                        while($r_dt_mobil = mysqli_fetch_array($sql_data_barang)){
+                                        while($r_dt_barang = mysqli_fetch_array($sql_data_barang)){
                                     ?>
                                         <tr class="odd gradeX">
                                         <!-- <td><center><?php echo $no++; ?>.</center></td> -->
-                                        <td><?php echo $r_dt_mobil['id_pengembalian']; ?></td>
-                                        <td><?php echo $r_dt_mobil['id_admin']; ?></td>
-                                        <td><?php echo $r_dt_mobil['id_mobil']; ?></td>
-                                        <td><?php echo $r_dt_mobil['id_customer']; ?></td>
-                                        <td><?php echo $r_dt_mobil['id_sewa']; ?></td>
-                                        <td><?php echo $r_dt_mobil['tanggal_kembali']; ?></td>
-                                        <td><?php echo $r_dt_mobil['keterangan']; ?></td>
-                                        <td><?php echo $r_dt_mobil['lama_sewa']; ?></td>
-                                        <td><?php echo $r_dt_mobil['biaya_sewa']; ?></td>
-                                        <td><?php echo $r_dt_mobil['denda']; ?></td>
-                                        <td><?php echo $r_dt_mobil['keterangan_bayar']; ?></td>
-                                        <td><?php echo $r_dt_mobil['total_pembayaran']; ?></td>
+                                        <td><?php echo $r_dt_barang['id_pengembalian']; ?></td>
+                                        <td><?php echo $r_dt_barang['id_admin']; ?></td>
+                                        <td><?php echo $r_dt_barang['id_barang']; ?></td>
+                                        <td><?php echo $r_dt_barang['id_customer']; ?></td>
+                                        <td><?php echo $r_dt_barang['id_sewa']; ?></td>
+                                        <td><?php echo $r_dt_barang['tanggal_kembali']; ?></td>
+                                        <td><?php echo $r_dt_barang['keterangan']; ?></td>
+                                        <td><?php echo $r_dt_barang['lama_sewa']; ?></td>
+                                        <td><?php echo $r_dt_barang['biaya_sewa']; ?></td>
+                                        <td><?php echo $r_dt_barang['denda']; ?></td>
+                                        <td><?php echo $r_dt_barang['keterangan_bayar']; ?></td>
+                                        <td><?php echo $r_dt_barang['total_pembayaran']; ?></td>
                                         </tr>
                                         <?php
                                         }

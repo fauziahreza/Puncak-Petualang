@@ -82,7 +82,7 @@ if(isset ($_SESSION['username'])){
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="img/dashboard.png" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -95,7 +95,7 @@ if(isset ($_SESSION['username'])){
             <li class="nav-item">
                 <a class="nav-link" href="data_barang_admin.php">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Mobil</span>
+                    <span>Data Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -212,7 +212,7 @@ if(isset ($_SESSION['username'])){
 
                                         $hasil2=mysqli_query($conn,$sql2);
                                         while ($data2 = mysqli_fetch_array($hasil2)){
-                                        $id_mobil=$data2['id_mobil'];
+                                        $id_barang=$data2['id_barang'];
                                         $id_customer=$data2['id_customer'];
                                         }
 
@@ -232,7 +232,7 @@ if(isset ($_SESSION['username'])){
                                         $data3 = mysqli_fetch_array($hasil3);
                                         $lama_sewa=$data3[0];
 
-                                        $sql5="SELECT harga_sewa FROM mobil WHERE id_mobil=$id_mobil";
+                                        $sql5="SELECT harga_sewa FROM barang WHERE id_barang=$id_barang";
                                         $hasil5=mysqli_query($conn,$sql5);
                                         $data5 = mysqli_fetch_array($hasil5);
 
@@ -245,7 +245,7 @@ if(isset ($_SESSION['username'])){
                                         //Query input menginput data kedalam tabel barang
                                         
                                         mysqli_begin_transaction($conn);
-                                        $sql4="CALL pengembalian(null,$id_admin,$id_mobil,$id_customer,$id_sewa,'$tanggal_kembali','$keterangan',$lama_sewa,$biaya_sewa,$denda,$hargatotal,'$keterangan_bayar')";
+                                        $sql4="CALL pengembalian(null,$id_admin,$id_barang,$id_customer,$id_sewa,'$tanggal_kembali','$keterangan',$lama_sewa,$biaya_sewa,$denda,$hargatotal,'$keterangan_bayar')";
                                         
                                         //Mengeksekusi/menjalankan query diatas
                                         	

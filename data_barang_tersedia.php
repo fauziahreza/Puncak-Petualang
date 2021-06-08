@@ -172,15 +172,15 @@ if(isset ($_SESSION['username'])){
                                     </thead>
                                     <tbody align="center">
                                     <?php
-                                        while($r_dt_mobil = mysqli_fetch_array($sql_data_barang)){
+                                        while($r_dt_barang = mysqli_fetch_array($sql_data_barang)){
                                     ?>
                                         <tr class="odd gradeX">
                                         <td><center><?php echo $no++; ?>.</center></td>
-                                        <td><?php echo $r_dt_mobil['id_barang']; ?></td>
-                                        <td><?php echo $r_dt_mobil['jenis_barang']; ?></td>
-                                        <td><?php echo $r_dt_mobil['nama_barang']; ?></td>
-                                        <td><?php echo $r_dt_mobil['harga_sewa']; ?></td>
-                                        <td><?php echo $r_dt_mobil['keterangan']; ?></td>
+                                        <td><?php echo $r_dt_barang['id_barang']; ?></td>
+                                        <td><?php echo $r_dt_barang['jenis_barang']; ?></td>
+                                        <td><?php echo $r_dt_barang['nama_barang']; ?></td>
+                                        <td><?php echo $r_dt_barang['harga_sewa']; ?></td>
+                                        <td><?php echo $r_dt_barang['keterangan']; ?></td>
                                         </tr>
                                     <?php
                                         }

@@ -156,7 +156,7 @@ if(isset ($_SESSION['username'])){
                                     <br>
                                 </div>
                                 <?php
-                                $query_data_sewa = "SELECT penyewaan.id_sewa, penyewaan.id_admin, penyewaan.id_mobil, penyewaan.id_customer, customer.nama, penyewaan.tanggal_sewa, penyewaan.waktu_sewa
+                                $query_data_sewa = "SELECT penyewaan.id_sewa, penyewaan.id_admin, penyewaan.id_barang, penyewaan.id_customer, customer.nama, penyewaan.tanggal_sewa, penyewaan.waktu_sewa
                                                     FROM penyewaan
                                                     INNER JOIN customer ON penyewaan.id_customer = customer.id_customer;";
                                 $sql_data_sewa = mysqli_query($conn, $query_data_sewa);
@@ -168,7 +168,7 @@ if(isset ($_SESSION['username'])){
                                             <th>No.</th>
                                             <th>Id Sewa</th>
                                             <th>Id Admin</th>
-                                            <th>Id Mobil</th>
+                                            <th>Id Barang</th>
                                             <th>Id Customer</th>
                                             <th>Nama Customer</th>
                                             <th>Tanggal Sewa</th>
@@ -183,7 +183,7 @@ if(isset ($_SESSION['username'])){
                                         <td><center><?php echo $no++; ?>.</center></td>
                                         <td><?php echo $r_dt_sewa['id_sewa']; ?></td>
                                         <td><?php echo $r_dt_sewa['id_admin']; ?></td>
-                                        <td><?php echo $r_dt_sewa['id_mobil']; ?></td>
+                                        <td><?php echo $r_dt_sewa['id_barang']; ?></td>
                                         <td><?php echo $r_dt_sewa['id_customer']; ?></td>
                                         <td><?php echo $r_dt_sewa['nama']; ?></td>
                                         <td><?php echo $r_dt_sewa['tanggal_sewa']; ?></td>

@@ -24,7 +24,7 @@ if(isset ($_SESSION['username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Rent Car</title>
+    <title>Puncak Petualang</title>
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@ if(isset ($_SESSION['username'])){
                 <div class="sidebar-brand-icon">
                     <img src="img/icon.png" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
@@ -55,8 +55,8 @@ if(isset ($_SESSION['username'])){
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_barang.php">
-                <img alt="Image placeholder" src="img/mobil.png">
-                    <span>&nbsp;Data Mobil</span>
+                <img alt="Image placeholder" src="img/katalog.png">
+                    <span>&nbsp;Data Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -81,12 +81,12 @@ if(isset ($_SESSION['username'])){
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="img/dashboard.png" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="beranda.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <img alt="Image placeholder" src="img/katalog.png">
                     <span>Beranda</span>
                 </a>
             </li>
@@ -94,7 +94,7 @@ if(isset ($_SESSION['username'])){
             <li class="nav-item">
                 <a class="nav-link" href="data_barang_admin.php">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Mobil</span>
+                    <span>Data Barangl</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">

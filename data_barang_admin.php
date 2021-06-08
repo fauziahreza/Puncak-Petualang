@@ -64,7 +64,7 @@ if(isset ($_SESSION['username'])){
             <li class="nav-item">
                 <a class="nav-link" href="peminjaman.php">
                 <img alt="Image placeholder" src="img/sewa.svg" width="25px" height="25px">
-                    <span>&nbsp;Sewa Barang</span>
+                    <span>&nbsp;Sewa barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
@@ -145,8 +145,8 @@ if(isset ($_SESSION['username'])){
             <!-- Content -->
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Data Mobil</h1>
-                    <a href="tambah_barang.php" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">Tambah Mobil Baru</a>
+                    <h1 class="h3 mb-0 text-gray-800">Data barang</h1>
+                    <a href="tambah_barang.php" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">Tambah barang Baru</a>
                 </div>
                 <section class="mar-top--x-3 mar-bottom--x-5">
                     <div class="card shadow mb-4">
@@ -162,10 +162,9 @@ if(isset ($_SESSION['username'])){
                                     <thead align="center">
                                         <tr>
                                             <th>No.</th>
-                                            <th>Id Mobil</th>
-                                            <th>Nopol Mobil</th>
-                                            <th>Tipe Mobil</th>
-                                            <th>Tahun Produksi</th>
+                                            <th>Id barang</th>
+                                            <th>Jenis barang</th>
+                                            <th>Nama barang</th>
                                             <th>Harga Sewa</th>
                                             <th>Keterangan</th>
                                             <th>Aksi</th>
@@ -180,34 +179,34 @@ if(isset ($_SESSION['username'])){
                                         $sql_update = mysqli_query($conn, $query_update);
                                         if($sql_update){
                                             $_SESSION['updatesukses'] = 'sukses';
-                                            echo "<script>alert('Berhasil memperbarui data Mobil!')</script>";
+                                            echo "<script>alert('Berhasil memperbarui data barang!')</script>";
                                             header('location: data_barang_admin.php');
                                         } else {
-                                            echo "<script>alert('Gagal memperbarui data Mobil!')</script>";
+                                            echo "<script>alert('Gagal memperbarui data barang!')</script>";
                                         }
                                     }
                                     ?>
                                     <?php
-                                        while($r_dt_mobil = mysqli_fetch_array($sql_data_barang)){
+                                        while($r_dt_barang = mysqli_fetch_array($sql_data_barang)){
                                     ?>
                                         <tr class="odd gradeX">
                                         <td><center><?php echo $no++; ?>.</center></td>
-                                        <td><?php echo $r_dt_mobil['id_barang']; ?></td>
-                                        <td><?php echo $r_dt_mobil['jenis_barang']; ?></td>
-                                        <td><?php echo $r_dt_mobil['nama_barang']; ?></td>
-                                        <td><?php echo $r_dt_mobil['harga_sewa']; ?></td>
-                                        <td><?php echo $r_dt_mobil['keterangan']; ?></td>
+                                        <td><?php echo $r_dt_barang['id_barang']; ?></td>
+                                        <td><?php echo $r_dt_barang['jenis_barang']; ?></td>
+                                        <td><?php echo $r_dt_barang['nama_barang']; ?></td>
+                                        <td><?php echo $r_dt_barang['harga_sewa']; ?></td>
+                                        <td><?php echo $r_dt_barang['keterangan']; ?></td>
                                         <td>
-                                        <button class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"data-toggle="modal" data-target="#editModal<?php echo $r_dt_mobil['id_mobil']; ?>">Edit</button>
-                                            <button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapusModal<?php echo $r_dt_mobil['id_mobil']; ?>">Hapus</button>
+                                        <button class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"data-toggle="modal" data-target="#editModal<?php echo $r_dt_barang['id_barang']; ?>">Edit</button>
+                                            <button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapusModal<?php echo $r_dt_barang['id_barang']; ?>">Hapus</button>
                                         </td>
                                         </tr>
-                                        <div class="modal fade" id="editModal<?php echo $r_dt_mobil['id_barang']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        <div class="modal fade" id="editModal<?php echo $r_dt_barang['id_barang']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Edit data <?php echo $r_dt_mobil['id_barang']; ?>?</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Edit data <?php echo $r_dt_barang['id_barang']; ?>?</h5>
                                                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">×</span>
                                                         </button>
@@ -215,21 +214,21 @@ if(isset ($_SESSION['username'])){
                                                     <form action="" method="post">
                                                         <div class="modal-body">
                                                             <div class="form-group row">
-                                                                <label for="Id Barang" class="col-sm-2 col-form-label">Id Barang</label>
+                                                                <label for="Id barang" class="col-sm-2 col-form-label">Id barang</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['id_barang'];?>" disabled>     
+                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_barang['id_barang'];?>" disabled>     
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label for="Jenis Barang" class="col-sm-2 col-form-label">Jenis Barang</label>
+                                                                <label for="Jenis barang" class="col-sm-2 col-form-label">Jenis barang</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['jenis_barang'];?>" disabled>
+                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_barang['jenis_barang'];?>" disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label for="Nama Barang" class="col-sm-2 col-form-label">nama barang</label>
+                                                                <label for="Nama barang" class="col-sm-2 col-form-label">nama barang</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['nama_barang'];?>" disabled>     
+                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_barang['nama_barang'];?>" disabled>     
                                                                 </div>
                                                             <div class="form-group row">
                                                                 <label for="Harga Sewa" class="col-sm-2 col-form-label">Harga Sewa</label>
@@ -240,13 +239,13 @@ if(isset ($_SESSION['username'])){
                                                             <div class="form-group row">
                                                                 <label for="Keterangan" class="col-sm-2 col-form-label">Keterangan</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" value="<?php echo $r_dt_mobil['keterangan'];?>" class="form-control" disabled>
+                                                                    <input type="text" value="<?php echo $r_dt_barang['keterangan'];?>" class="form-control" disabled>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm" type="button" data-dismiss="modal">Batal</button>
-                                                            <button name="update" value="<?php echo $r_dt_mobil['id_mobil'];?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">Simpan Perubahan</button>
+                                                            <button name="update" value="<?php echo $r_dt_barang['id_barang'];?>" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">Simpan Perubahan</button>
                                                         </div>
                                                     </form>
                                                     <?php
@@ -254,12 +253,12 @@ if(isset ($_SESSION['username'])){
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal fade" id="hapusModal<?php echo $r_dt_mobil['id_mobil']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        <div class="modal fade" id="hapusModal<?php echo $r_dt_barang['id_barang']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Ingin menghapus mobil dengan id <?php echo $r_dt_mobil['id_mobil']; ?>?</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Ingin menghapus barang dengan id <?php echo $r_dt_barang['id_barang']; ?>?</h5>
                                                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">×</span>
                                                         </button>
@@ -268,15 +267,15 @@ if(isset ($_SESSION['username'])){
                                                     <div class="modal-footer">
                                                         <form action="" method="post">
                                                             <button class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm" type="button" data-dismiss="modal">Batal</button>
-                                                            <button name="hapus_mobil" value="<?php echo $r_dt_mobil['id_mobil']; ?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Hapus</button>
+                                                            <button name="hapus_barang" value="<?php echo $r_dt_barang['id_barang']; ?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Hapus</button>
                                                         </form> 
                                                     </div>
                                                     <?php
-                                                        if(isset($_POST['hapus_mobil'])){
-                                                            $id_mobil = $_POST['hapus_mobil'];
-                                                            $query_hapus_mobil = "DELETE FROM mobil WHERE id_mobil = $id_mobil";
-                                                            $sql_hapus_mobil = mysqli_query($conn, $query_hapus_mobil);
-                                                            if($sql_hapus_mobil){
+                                                        if(isset($_POST['hapus_barang'])){
+                                                            $id_barang = $_POST['hapus_barang'];
+                                                            $query_hapus_barang = "DELETE FROM barang WHERE id_barang = $id_barang";
+                                                            $sql_hapus_barang = mysqli_query($conn, $query_hapus_barang);
+                                                            if($sql_hapus_barang){
                                                                 header('location: data_barang_admin.php');
                                                             }
                                                         }
