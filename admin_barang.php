@@ -197,7 +197,7 @@ if(isset ($_SESSION['username'])){
                                         <td>Rp.<?php echo number_format($r_dt_barang['harga_sewa'],0,',','.'); ?>,-/hari</td>
                                         <td><?php echo $r_dt_barang['keterangan']; ?></td>
                                         <td>
-                                        <button class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"data-toggle="modal" data-target="#editModal<?php echo $r_dt_barang['id_barang']; ?>"><i class="far fa-edit"></i></button>
+                                            <button class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"data-toggle="modal" data-target="#editModal<?php echo $r_dt_barang['id_barang']; ?>"><i class="far fa-edit"></i></button>
                                             <button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapusModal<?php echo $r_dt_barang['id_barang']; ?>"><i class="fas fa-trash-alt"></i></button>
                                         </td>
                                         </tr>
@@ -273,7 +273,7 @@ if(isset ($_SESSION['username'])){
                                                     </div>
                                                     <?php
                                                         if(isset($_POST['hapus_barang'])){
-                                                            $id_mobil = $_POST['hapus_barang'];
+                                                            $id_barang = $_POST['hapus_barang'];
                                                             $query_hapus_barang = "DELETE FROM barang WHERE id_barang = $id_barang";
                                                             $sql_hapus_barang = mysqli_query($conn, $query_hapus_barang);
                                                             if($sql_hapus_barang){
