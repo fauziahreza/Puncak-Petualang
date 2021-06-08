@@ -1,6 +1,12 @@
 .gradient-bg {
     background-image: linear-gradient(135deg, #423B92, #4D39C7, #4131A3, #203582, #122147, #000717);
 }
+.gradientcard-bg {
+    background-image: linear-gradient(135deg, #3B9292, #39A5C7, #318EA3, #206A82, #275B78, #1B5255);
+}
+.image-bg {
+    background-image: url("img/pendaki.png");
+}
 .card-bg {
     background-image: linear-gradient(135deg, #2E2452, #312769, #2A14A9, #4936BC, #724FFF);
 }

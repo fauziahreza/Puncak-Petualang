@@ -20,13 +20,13 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
-<body class="gradient-bg">
+<body style="background-image: url('img/pendaki.png');">
     <div class="limiter">
     <br><br><br><br>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-9">
-                    <div class="card o-hidden border-0 card-bg my-5">
+                    <div class="card o-hidden border-0 gradientcard-bg my-5">
                         <div class="card-body p-0">
                             <!-- Nested Row within Card Body -->
                             <div class="row">
@@ -56,7 +56,7 @@
                                             <div class="form-group validate-input" data-validate = "Password is required">
                                                 <input type="password" name="password" class="form-control form-control-user" placeholder="Masukkan Password">
                                             </div>
-                                            <button type="submit" name="login" class="btn btn-danger btn-user btn-block">
+                                            <button type="submit" name="login" class="btn btn-primary btn-user btn-block">
                                                 Login
                                             </button>
                                         </form>
