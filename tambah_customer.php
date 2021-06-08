@@ -37,7 +37,7 @@ if(isset ($_SESSION['username'])){
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
         <?php
-            if($r['id_status'] == 1){
+            if($r['id_status'] == 2){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
                 <div class="sidebar-brand-icon">
@@ -75,7 +75,7 @@ if(isset ($_SESSION['username'])){
             </li>
             <hr class="sidebar-divider my-0">
         <?php
-            } else if($r['id_status'] == 2){
+            } else if($r['id_status'] == 1){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
                 <div class="sidebar-brand-icon rotate-n-15">
