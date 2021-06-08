@@ -189,22 +189,26 @@ if(isset ($_SESSION['username'])){
                                 </form>
                                 <?php
                                     if(isset($_POST['kirim_data'])){
+                                        $id = "";
                                         $nama = $_POST['nama'];
                                         $nomor_ktp = $_POST['nomor_ktp'];
                                         $alamat = $_POST['alamat'];
                                         $tanggal_lahir = $_POST['tanggal_lahir'];
+                                        $query_data2 = "INSERT INTO `customer`(`id_customer`, `nama`, `no_wa`, `alamat`,`tanggal_lahir`) VALUES ('$id','$nama','$nomor_ktp','$alamat','$tanggal_lahir')";
                                         $query_data = "INSERT INTO customer VALUES('','$nama','$nomor_ktp','$alamat',' $tanggal_lahir')";
-                                        $sql_data = mysqli_query($conn, $query_data);
+                                        $sql_data = mysqli_query($conn, $query_data2);
                                         if($sql_data){
                                             $_SESSION['daftar'] = 'sukses';
                                             echo "<script>alert('Berhasil Menambahkan Customer!')</script>";
                                             header("Refresh:0; url=peminjaman.php");
                                         } else {
+                                        
                                             echo "<script>alert('Gagal Menambahkan Customer!')</script>";
                                         }               
                                     }
                                 ?> 
                             </div>
+                            <?php echo $query_data2 ?>
                         </div>
                     </div>
                 </section>

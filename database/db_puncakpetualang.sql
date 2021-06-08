@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Jun 2021 pada 01.56
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 8.0.0
+-- Waktu pembuatan: 08 Jun 2021 pada 14.31
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,8 +37,8 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `penyewaan` (IN `no_admin` VARCHAR(10), IN `no_barang` VARCHAR(10), IN `no_customer` VARCHAR(10), IN `vtanggalsewa` DATE, IN `vwaktusewa` VARCHAR(10))  BEGIN 
 	UPDATE barang SET keterangan='tidak tersedia' 		WHERE id_barang = no_barang;
-    INSERT INTO `penyewaan` (`id_admin`, `id_barang`, `id_customer`, `tanggal_sewa`, `waktu_sewa`) 
-    VALUES (no_admin,no_barang, vidcustomer, vtanggalsewa, vwaktusewa);
+    INSERT INTO `penyewaan` (`id_admin`, `id_barang`, `id_customer`, `tanggal_sewa`, `waktu_sewa`)
+    VALUES (no_admin,no_barang, no_customer, vtanggalsewa, vwaktusewa);
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `tambah_barang` (IN `vidbarang` INT(11), IN `jenisbarang` VARCHAR(100), IN `namabarang` VARCHAR(100), IN `vhargasewa` INT(11), IN `vketerangan` VARCHAR(100))  BEGIN 
@@ -103,14 +103,15 @@ CREATE TABLE `barang` (
 INSERT INTO `barang` (`id_barang`, `jenis_barang`, `nama_barang`, `harga_sewa`, `keterangan`) VALUES
 (1, 'Tas', 'ARei Carrier Toba', 50000, 'tersedia'),
 (2, 'Sepatu', 'Eiger Boots Pollock', 25000, 'tersedia'),
-(3, 'Tenda', 'Eiger Riding Explorer', 150000, 'tersedia'),
+(3, 'Tenda', 'Eiger Riding Explorer', 150000, 'tidak tersedia'),
 (4, 'Peralatan Masak', 'Cooking Set', 15000, 'tersedia'),
-(5, 'Tas', 'Eiger Eliptic Solaris', 45000, 'tersedia'),
+(5, 'Tas', 'Eiger Eliptic Solaris', 45000, 'tidak tersedia'),
 (6, 'Tas', 'Osprey Kestrel', 35000, 'tersedia'),
-(7, 'Sepatu', 'Adidas Terrex Swift R2', 30000, 'tersedia'),
+(7, 'Sepatu', 'Adidas Terrex Swift R2', 30000, 'tidak tersedia'),
 (8, 'Tenda', 'Consina Magnum 5 productnation', 140000, 'tersedia'),
 (9, 'Sepatu', 'The North Face Chilkat 400', 35000, 'tersedia'),
-(10, 'Sepatu', 'Columbia Fairbanks', 30000, 'tersedia');
+(10, 'Sepatu', 'Columbia Fairbanks', 30000, 'tersedia'),
+(22, 'Tas', 'Bags', 2000, 'robet');
 
 --
 -- Trigger `barang`
@@ -146,21 +147,25 @@ CREATE TABLE `customer` (
   `id_customer` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `no_wa` varchar(255) NOT NULL,
-  `alamat` varchar(255) NOT NULL
+  `alamat` varchar(255) NOT NULL,
+  `tanggal_lahir` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `customer`
 --
 
-INSERT INTO `customer` (`id_customer`, `nama`, `no_wa`, `alamat`) VALUES
-(1, 'Justin Prabu', '81234567892', 'Sidoarjo'),
-(2, 'Kai Havertz', '82257176189', 'Maluku'),
-(3, 'Crishtian Pulisic', '87887667616', 'Lamongan'),
-(4, 'Eduo Mendy', '3156674117', 'Ambon'),
-(5, 'Thomas Tuchel', '83834712821', 'Bangkalan'),
-(6, 'Mason Mount', '812345678903', 'Gresik'),
-(7, 'Hakim Ziyech', '81098765432', 'Mojokerto');
+INSERT INTO `customer` (`id_customer`, `nama`, `no_wa`, `alamat`, `tanggal_lahir`) VALUES
+(1, 'Justin Prabu', '81234567892', 'Sidoarjo', ''),
+(2, 'Kai Havertz', '82257176189', 'Maluku', ''),
+(3, 'Crishtian Pulisic', '87887667616', 'Lamongan', ''),
+(4, 'Eduo Mendy', '3156674117', 'Ambon', ''),
+(5, 'Thomas Tuchel', '83834712821', 'Bangkalan', ''),
+(6, 'Mason Mount', '812345678903', 'Gresik', ''),
+(7, 'Hakim Ziyech', '81098765432', 'Mojokerto', ''),
+(9, 'awdawd', '090', 'aiwdiawjd', ''),
+(10, 'robet', '0898', 'Ds.Banteng, Rt 15 Rw 05,Barengkrajan,Krian,Sidoarjo', '2021-06-10'),
+(11, 'robet', '1213123', 'Ds.Banteng, Rt 15 Rw 05,Barengkrajan,Krian,Sidoarjo', '2021-06-08');
 
 -- --------------------------------------------------------
 
@@ -209,6 +214,18 @@ CREATE TABLE `log_data_barang` (
   `waktu_perubahan` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `log_data_barang`
+--
+
+INSERT INTO `log_data_barang` (`id_log_barang`, `id_barang`, `harga_lama`, `harga_baru`, `waktu_perubahan`) VALUES
+(12, 5, 45000, 45000, '2021-06-08'),
+(13, 5, 45000, 45000, '2021-06-08'),
+(14, 5, 45000, 45000, '2021-06-08'),
+(15, 5, 45000, 45000, '2021-06-08'),
+(16, 3, 150000, 150000, '2021-06-08'),
+(17, 7, 30000, 30000, '2021-06-08');
+
 -- --------------------------------------------------------
 
 --
@@ -254,6 +271,16 @@ CREATE TABLE `penyewaan` (
   `tanggal_sewa` date NOT NULL,
   `waktu_sewa` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `penyewaan`
+--
+
+INSERT INTO `penyewaan` (`id_sewa`, `id_admin`, `id_barang`, `id_customer`, `tanggal_sewa`, `waktu_sewa`) VALUES
+(24, 1, 5, 5, '2021-06-08', 3),
+(25, 1, 5, 6, '2021-06-12', 2),
+(26, 1, 3, 3, '2021-06-08', 3),
+(27, 1, 7, 5, '2021-06-07', 3);
 
 -- --------------------------------------------------------
 
@@ -350,19 +377,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `log_data_barang`
 --
 ALTER TABLE `log_data_barang`
-  MODIFY `id_log_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_log_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengembalian`
@@ -374,7 +401,7 @@ ALTER TABLE `pengembalian`
 -- AUTO_INCREMENT untuk tabel `penyewaan`
 --
 ALTER TABLE `penyewaan`
-  MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_sewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
