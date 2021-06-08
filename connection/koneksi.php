@@ -1,9 +1,9 @@
 <?php
 	$host = "localhost";
-	$user = "admin";
-	$pass = "pwadmin";
+	$user = "root";
+	$pass = "";
 	
-	$db = "smbd_project";
+	$db = "db_puncakpetualang";
 	$conn = mysqli_connect($host,$user,$pass,$db);
 	mysqli_select_db ($conn, $db);
 	

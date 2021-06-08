@@ -24,7 +24,8 @@ if(isset ($_SESSION['username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Rent Car</title>
+    <title>Puncak Petualang</title>
+    <link rel="stylesheet" href="css/Styles.css">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -35,84 +36,78 @@ if(isset ($_SESSION['username'])){
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav gradient-bg sidebar sidebar-dark accordion" id="accordionSidebar">
         <?php
-            if($r['id_level'] == 1){
+            if($r['id_status'] == 1){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
                 <div class="sidebar-brand-icon">
-                    <img src="img/icon.png" width="30px" height="30px">
+                    <img src="img/logo.svg" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="beranda.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <img alt="Image placeholder" src="img/beranda.svg" width="25px" height="25px">
                     <span>Beranda</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="data_mobil.php">
-                <img alt="Image placeholder" src="img/mobil.png">
-                    <span>&nbsp;Data Mobil</span>
+                <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
+                    <span>&nbsp;Katalog</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="peminjaman.php">
-                <img alt="Image placeholder" src="img/pinjam.png">
-                    <span>&nbsp;Penyewaan</span>
+                <img alt="Image placeholder" src="img/sewa.svg" width="25px" height="25px">
+                    <span>&nbsp;Sewa Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="pengembalian.php">
-                <img alt="Image placeholder" src="img/kembali.png">
+                <img alt="Image placeholder" src="img/kembali.svg" width="25px" height="25px">
                     <span>&nbsp;Pengembalian</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <br>
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
         <?php
-            } else if($r['id_level'] == 2){
+            } else if($r['id_status'] == 2){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <img src="img/dashboard.png" width="30px" height="30px">
+                <div class="sidebar-brand-icon">
+                    <img src="img/logo.svg" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="beranda.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <img alt="Image placeholder" src="img/beranda.svg" width="25px" height="25px">
                     <span>Beranda</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_mobil_admin.php">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Mobil</span>
+                <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
+                    <span>&nbsp;Katalog</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_transaksi.php">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Transaksi</span>
+                <img alt="Image placeholder" src="img/tf.svg" width="25px" height="25px">
+                    <span>&nbsp;Transaksi</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <br>
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
         <?php
             }
         ?>
@@ -124,14 +119,14 @@ if(isset ($_SESSION['username'])){
             <div id="content">
                   
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light gradient-bg topbar mb-4 static-top shadow">
                     <ul class="navbar-nav ml-auto">
                         
                         <!-- Informasi User -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $r['nama'];?></span>
+                                <span class="mr-2 d-none d-lg-inline text-white small"><?php echo $r['nama'];?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -151,33 +146,33 @@ if(isset ($_SESSION['username'])){
 
             <!-- Content -->
             <?php
-                $catalog_mobil_terpinjam = mysqli_query($conn, "SELECT view_definition FROM information_schema.views WHERE TABLE_NAME = 'mobil_terpinjam'");
-                $view_mobil_terpinjam;
-                foreach ($catalog_mobil_terpinjam as $row) {
-                    $view_mobil_terpinjam = $row['view_definition'];
+                $catalog_barang_sedang_dipinjam = mysqli_query($conn, "SELECT view_definition FROM information_schema.views WHERE TABLE_NAME = 'barang_sedang_dipinjam'");
+                $view_barang_sedang_dipinjam;
+                foreach ($catalog_barang_sedang_dipinjam as $row) {
+                    $view_barang_sedang_dipinjam = $row['view_definition'];
                 }
-                $execute_view_mobil_terpinjam = mysqli_query($conn, $view_mobil_terpinjam);
+                $execute_view_barang_sedang_dipinjam = mysqli_query($conn, $view_barang_sedang_dipinjam);
                 $count_terpinjam = 0;
-                foreach ($execute_view_mobil_terpinjam as $row) {
+                foreach ($execute_view_barang_sedang_dipinjam as $row) {
                     $count_terpinjam = $row['COUNT(id_sewa)'];
                 }
             ?>
             <?php
-                $catalog_mobil_ready = mysqli_query($conn, "SELECT view_definition FROM information_schema.views WHERE TABLE_NAME = 'mobil_ready'");
-                $view_mobil_ready;
-                foreach ($catalog_mobil_ready as $row) {
-                    $view_mobil_ready = $row['view_definition'];
+                $catalog_barang_ready = mysqli_query($conn, "SELECT view_definition FROM information_schema.views WHERE TABLE_NAME = 'barang_ready'");
+                $view_barang_ready;
+                foreach ($catalog_barang_ready as $row) {
+                    $view_barang_ready = $row['view_definition'];
                 }
-                $execute_view_mobil_ready = mysqli_query($conn, $view_mobil_ready);
+                $execute_view_barang_ready = mysqli_query($conn, $view_barang_ready);
                 $count_ready = 0;
-                foreach ($execute_view_mobil_ready as $row) {
-                    $count_ready = $row['COUNT(id_mobil)'];
+                foreach ($execute_view_barang_ready as $row) {
+                    $count_ready = $row['COUNT(id_barang)'];
                 }
             ?>
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Data Mobil</h1>
-                    <a href="data_mobil_tersedia.php" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">Tampilkan Data Mobil Tersedia</a>
+                    <h1 class="h3 mb-0 text-gray-800">Data Barang</h1>
+                    <a href="data_mobil_tersedia.php" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">Tampilkan Data Barang Yang Tersedia</a>
                 </div>
                 <div class="row">
                     <div class="col-xl-3 col-md-6 mb-4">
@@ -185,7 +180,7 @@ if(isset ($_SESSION['username'])){
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Mobil Dipinjam
+                                        <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Barang Sedang Dipinjam
                                         </div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
@@ -212,7 +207,7 @@ if(isset ($_SESSION['username'])){
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Mobil Tersedia
+                                        <div class="text-xs font-weight-bold text-gray-800 text-uppercase mb-1">Barang Yang Tersedia
                                         </div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
@@ -242,7 +237,7 @@ if(isset ($_SESSION['username'])){
                         <div class="card-body">
                             <div class="table-responsive">
                             <?php
-                            $query_data_mobil = "SELECT * FROM mobil";
+                            $query_data_mobil = "SELECT * FROM barang";
                             $sql_data_mobil = mysqli_query($conn, $query_data_mobil);
                             $no = 1;
                             ?>
@@ -250,10 +245,9 @@ if(isset ($_SESSION['username'])){
                                     <thead align="center">
                                         <tr>
                                             <th>No.</th>
-                                            <th>Id Mobil</th>
-                                            <th>Nopol Mobil</th>
-                                            <th>Tipe Mobil</th>
-                                            <th>Tahun Produksi</th>
+                                            <th>Id Barang</th>
+                                            <th>Jenis Barang</th>
+                                            <th>Nama Barang</th>
                                             <th>Harga Sewa</th>
                                             <th>Keterangan</th>
                                         </tr>
@@ -264,10 +258,9 @@ if(isset ($_SESSION['username'])){
                                     ?>
                                         <tr class="odd gradeX">
                                         <td><center><?php echo $no++; ?>.</center></td>
-                                        <td><?php echo $r_dt_mobil['id_mobil']; ?></td>
-                                        <td><?php echo $r_dt_mobil['nopol_mobil']; ?></td>
-                                        <td><?php echo $r_dt_mobil['tipe_mobil']; ?></td>
-                                        <td><?php echo $r_dt_mobil['tahun_produksi']; ?></td>
+                                        <td><?php echo $r_dt_mobil['id_barang']; ?></td>
+                                        <td><?php echo $r_dt_mobil['jenis_barang']; ?></td>
+                                        <td><?php echo $r_dt_mobil['nama_barang']; ?></td>
                                         <td><?php echo $r_dt_mobil['harga_sewa']; ?></td>
                                         <td><?php echo $r_dt_mobil['keterangan']; ?></td>
                                         </tr>
@@ -283,15 +276,6 @@ if(isset ($_SESSION['username'])){
             </div>
             <br><br><br><br><br>
             <!-- End of Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Kelompok 9</span>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 

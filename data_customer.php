@@ -37,7 +37,7 @@ if(isset ($_SESSION['username'])){
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
         <?php
-            if($r['id_level'] == 1){
+            if($r['id_status'] == 1){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
                 <div class="sidebar-brand-icon">
@@ -74,12 +74,8 @@ if(isset ($_SESSION['username'])){
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
-            <br>
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
         <?php
-            } else if($r['id_level'] == 2){
+            } else if($r['id_status'] == 2){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
                 <div class="sidebar-brand-icon rotate-n-15">
@@ -109,10 +105,6 @@ if(isset ($_SESSION['username'])){
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
-            <br>
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
         <?php
             }
         ?>
@@ -202,15 +194,6 @@ if(isset ($_SESSION['username'])){
             </div>
             <br><br><br><br><br><br>
             <!-- End of Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Kelompok 9</span>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 

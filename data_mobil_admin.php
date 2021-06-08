@@ -24,7 +24,8 @@ if(isset ($_SESSION['username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Rent Car</title>
+    <title>Puncak Petualang</title>
+    <link rel="stylesheet" href="css/Styles.css">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -35,84 +36,76 @@ if(isset ($_SESSION['username'])){
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav gradient-bg sidebar sidebar-dark accordion" id="accordionSidebar">
         <?php
-            if($r['id_level'] == 1){
+            if($r['id_status'] == 1){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <img src="img/dashboard.png" width="30px" height="30px">
+                <div class="sidebar-brand-icon">
+                    <img src="img/logo.svg" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="beranda.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <img alt="Image placeholder" src="img/beranda.svg" width="25px" height="25px">
                     <span>Beranda</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="data_mobil.php">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Mobil</span>
+                <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
+                    <span>&nbsp;Katalog</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="peminjaman.php">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Penyewaan</span>
+                <img alt="Image placeholder" src="img/sewa.svg" width="25px" height="25px">
+                    <span>&nbsp;Sewa Barang</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="pengembalian.php">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pengembalian</span>
+                <img alt="Image placeholder" src="img/kembali.svg" width="25px" height="25px">
+                    <span>&nbsp;Pengembalian</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
-            <br>
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
         <?php
-            } else if($r['id_level'] == 2){
+            } else if($r['id_status'] == 2){
         ?>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="beranda.php">
                 <div class="sidebar-brand-icon">
-                    <img src="img/icon.png" width="30px" height="30px">     
+                    <img src="img/logo.svg" width="30px" height="30px">
                 </div>
-                <div class="sidebar-brand-text mx-3">Rent Car</div>
+                <div class="sidebar-brand-text mx-3">Puncak Petualang</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="beranda.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <img alt="Image placeholder" src="img/beranda.svg" width="25px" height="25px">
                     <span>Beranda</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="data_mobil_admin.php">
-                    <img alt="Image placeholder" src="img/mobil.png">
-                    <span>Data Mobil</span>
+                <img alt="Image placeholder" src="img/katalog.svg" width="25px" height="25px">
+                    <span>&nbsp;Katalog</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="data_transaksi.php">
-                    <img alt="Image placeholder" src="img/pinjam.png">
-                    <span>Data Transaksi</span>
+                <img alt="Image placeholder" src="img/tf.svg" width="25px" height="25px">
+                    <span>&nbsp;Transaksi</span>
                 </a>
             </li>
             <hr class="sidebar-divider my-0">
-            <br>
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
         <?php
             }
         ?>
@@ -124,7 +117,7 @@ if(isset ($_SESSION['username'])){
             <div id="content">
                   
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light gradient-bg topbar mb-4 static-top shadow">
                     <ul class="navbar-nav ml-auto">
                         
                         <!-- Informasi User -->
@@ -161,7 +154,7 @@ if(isset ($_SESSION['username'])){
                             <div class="table-responsive">
                             
                             <?php
-                            $query_data_mobil = "SELECT * FROM mobil";
+                            $query_data_mobil = "SELECT * FROM barang";
                             $sql_data_mobil = mysqli_query($conn, $query_data_mobil);
                             $no = 1;
                             ?>
@@ -182,8 +175,8 @@ if(isset ($_SESSION['username'])){
                                     <?php
                                     if(isset($_POST['update'])){
                                         $harga_sewa = $_POST['harga_sewa'];
-                                        $id_mobil = $_POST['update'];
-                                        $query_update = "UPDATE mobil SET harga_sewa = '$harga_sewa' WHERE id_mobil = '$id_mobil'";
+                                        $id_barang = $_POST['update'];
+                                        $query_update = "UPDATE barang SET harga_sewa = '$harga_sewa' WHERE id_barang = '$id_barang'";
                                         $sql_update = mysqli_query($conn, $query_update);
                                         if($sql_update){
                                             $_SESSION['updatesukses'] = 'sukses';
@@ -199,10 +192,9 @@ if(isset ($_SESSION['username'])){
                                     ?>
                                         <tr class="odd gradeX">
                                         <td><center><?php echo $no++; ?>.</center></td>
-                                        <td><?php echo $r_dt_mobil['id_mobil']; ?></td>
-                                        <td><?php echo $r_dt_mobil['nopol_mobil']; ?></td>
-                                        <td><?php echo $r_dt_mobil['tipe_mobil']; ?></td>
-                                        <td><?php echo $r_dt_mobil['tahun_produksi']; ?></td>
+                                        <td><?php echo $r_dt_mobil['id_barang']; ?></td>
+                                        <td><?php echo $r_dt_mobil['jenis_barang']; ?></td>
+                                        <td><?php echo $r_dt_mobil['nama_barang']; ?></td>
                                         <td><?php echo $r_dt_mobil['harga_sewa']; ?></td>
                                         <td><?php echo $r_dt_mobil['keterangan']; ?></td>
                                         <td>
@@ -210,12 +202,12 @@ if(isset ($_SESSION['username'])){
                                             <button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapusModal<?php echo $r_dt_mobil['id_mobil']; ?>">Hapus</button>
                                         </td>
                                         </tr>
-                                        <div class="modal fade" id="editModal<?php echo $r_dt_mobil['id_mobil']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        <div class="modal fade" id="editModal<?php echo $r_dt_mobil['id_barang']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Edit data <?php echo $r_dt_mobil['id_mobil']; ?>?</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Edit data <?php echo $r_dt_mobil['id_barang']; ?>?</h5>
                                                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">×</span>
                                                         </button>
@@ -223,29 +215,22 @@ if(isset ($_SESSION['username'])){
                                                     <form action="" method="post">
                                                         <div class="modal-body">
                                                             <div class="form-group row">
-                                                                <label for="Id Mobil" class="col-sm-2 col-form-label">Id Mobil</label>
+                                                                <label for="Id Barang" class="col-sm-2 col-form-label">Id Barang</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['id_mobil'];?>" disabled>     
+                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['id_barang'];?>" disabled>     
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label for="Nopol Mobil" class="col-sm-2 col-form-label">Nopol Mobil</label>
+                                                                <label for="Jenis Barang" class="col-sm-2 col-form-label">Jenis Barang</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['nopol_mobil'];?>" disabled>
+                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['jenis_barang'];?>" disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label for="Tipe Mobil" class="col-sm-2 col-form-label">Tipe Mobil</label>
+                                                                <label for="Nama Barang" class="col-sm-2 col-form-label">nama barang</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['tipe_mobil'];?>" disabled>     
+                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['nama_barang'];?>" disabled>     
                                                                 </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label for="Tahun Produksi" class="col-sm-2 col-form-label">Tahun Produksi</label>
-                                                                <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" value="<?php echo $r_dt_mobil['tahun_produksi'];?>" disabled>
-                                                                </div>
-                                                            </div>
                                                             <div class="form-group row">
                                                                 <label for="Harga Sewa" class="col-sm-2 col-form-label">Harga Sewa</label>
                                                                 <div class="col-sm-10">
@@ -310,15 +295,6 @@ if(isset ($_SESSION['username'])){
                 </section>
             </div>
             <!-- End of Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Kelompok 9</span>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 

@@ -1,0 +1,17 @@
+.gradient-bg {
+    background-image: linear-gradient(135deg, #423B92, #4D39C7, #4131A3, #203582, #122147, #000717);
+}
+.card-bg {
+    background-image: linear-gradient(135deg, #2E2452, #312769, #2A14A9, #4936BC, #724FFF);
+}
+.card-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: 1cm;
+    background-color: #fff;
+    background-clip: border-box;
+}
